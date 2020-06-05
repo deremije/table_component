@@ -5,7 +5,7 @@ import TableComponent from "./TableComponent/TableComponent"
 
 class App extends React.Component {
   state = {
-    headers: ['name', 'photo', 'email', 'cell', 'gender', 'nationality'],
+    headers: ['name', 'email', 'cell', 'gender', 'nationality'],
     data: null
   }
   

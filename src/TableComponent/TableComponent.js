@@ -8,13 +8,20 @@ import './TableComponent.scss'
 const DataItem = lazy(() => import("./DataItem/DataItem"))
 
 class TableComponent extends React.Component {
-    state = {
-        ascending: true,
-        sortBy: ""
+    constructor(props) {
+        super(props)
+        this.state = {
+            ascending: true,
+            sortBy: "",
+            lines: 10
+        }
+        this.element = React.createRef()
     }
+    
 
     componentDidMount() {
         if (this.props.headers) this.setState({sortBy: this.props.headers[0]})
+        setTimeout(() => { this.onScroll() }, 0)
     }
 
     columnSort(header) {
@@ -46,16 +53,28 @@ class TableComponent extends React.Component {
         })
         return array
     }
+
+    onScroll() {
+        if (this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < 200) {
+            if (this.props.data.length > this.state.lines) {
+                this.setState({ lines: this.state.lines + 10 })
+                setTimeout(() => { this.onScroll() }, 0)
+            }
+        }
+    }
     
     render() {
-        const sortedData = this.sortData()
-
+        const sortedData = this.sortData().slice(0, this.state.lines)
+        
         return (
-            <div className='tableComponent'>
+            <div className='tableComponent' ref={this.element} onScroll={() => this.onScroll()}>
                 
                 {this.props.headers.map(header => 
                     <Resizable 
                         key={header}
+                        defaultSize={{
+                            width:200
+                        }}
                         enable={{ 
                             top:false, 
                             right:true, 
@@ -72,9 +91,7 @@ class TableComponent extends React.Component {
                             </div>
                             {sortedData.map(line => 
                                 <Suspense key={line.id} fallback={<div className='dataItem'>Loading {header}...</div>}>
-                                    {header === "photo" ?
-                                        <div className='imgWrapper'><img src={line.photo} alt={line.name} /></div> :
-                                        <DataItem line={line} header={header} />}
+                                    <DataItem line={line} header={header} />
                                 </Suspense>
                             )}
                     </Resizable>
