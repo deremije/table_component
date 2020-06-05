@@ -1,29 +1,59 @@
 div.tableComponent {
-  width: 80%;
+  width: auto;
   height: auto;
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: #eee;
-  margin: auto;
   display: flex;
   justify-content: flex-start;
-  div.column {
-    flex-grow: 1;
+  color: #1A1A1A;
+  .column {
     height: auto;
-    border: solid 2px black;
+    border-right: solid 1px #ccc;
+    padding: 0 20px;
     .header {
-      background-color: black;
-      color: white;
+      padding: 10px;
+      margin-bottom: 6px;
+      border-bottom: solid 2px black;
       font-weight: bold;
-      height: 30px;
-      line-height: 30px;
+      font-size: 18px;
+      height: 32px;
+      line-height: 32px;
       cursor: pointer;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+      .caret {
+        border-right: solid 3px black;
+        border-bottom: solid 3px black;
+        height: 6px;
+        width: 6px;
+        display: inline-block;
+        margin-left: 5px;
+        margin-bottom: 2px;
+        transition: all linear 200ms;
+      }
     }
     .dataItem {
-      font-weight: bold;
-      height: 24px;
-      line-height: 24px;
+      padding: 10px;
+      height: 32px;
+      line-height: 32px;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left;
+    }
+    .imgWrapper {
+      height: 48px;
+      padding: 2px;
+      text-align: center;
+      overflow: hidden;
+      img {
+        border-radius: 50%;
+        height: 100%;
+        width: auto;
+        margin: auto;
+      }
     }
   }
 
