@@ -1,115 +1,121 @@
 div.tableComponent {
-  width: auto;
-  height: 100%;
-  position: relative;
-  display: flex;
-  justify-content: flex-start;
-  color: #1A1A1A;
   overflow-y: scroll;
   overflow-x: hidden;
-  .column {
-    height: 100%;
-    border-right: solid 1px #ccc;
-    padding: 0 20px;
-    .header {
-      padding: 10px;
-      margin-bottom: 6px;
-      border-bottom: solid 2px black;
-      font-weight: bold;
-      font-size: 18px;
-      height: 32px;
-      line-height: 32px;
-      cursor: pointer;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: left;
-      .caret {
-        border-right: solid 3px black;
-        border-bottom: solid 3px black;
-        height: 6px;
-        width: 6px;
-        display: inline-block;
-        margin-left: 5px;
-        margin-bottom: 2px;
-        transition: all linear 200ms;
+  height: 100%;
+  div.scrollable {
+    width: auto;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: flex-start;
+    color: #1A1A1A;
+    .column {
+      height: 100%;
+      border-right: solid 1px #ddd;
+      padding: 0 20px;
+      .header {
+        padding: 10px;
+        margin-bottom: 6px;
+        border-bottom: solid 2px black;
+        font-weight: bold;
+        font-size: 18px;
+        height: 32px;
+        line-height: 32px;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+        .caret {
+          border-right: solid 3px black;
+          border-bottom: solid 3px black;
+          height: 6px;
+          width: 6px;
+          display: inline-block;
+          margin-left: 5px;
+          margin-bottom: 2px;
+          transition: all linear 200ms;
+        }
+      }
+      .dataItem {
+        padding: 10px;
+        height: 32px;
+        line-height: 32px;
+        font-size: 16px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        text-align: left;
+        img {
+          border-radius: 50%;
+          height: 24px;
+          position: relative;
+          top: 5px;
+          width: auto;
+          margin-right: 3px;
+        }
+      }
+      span div {
+        border-left: solid 1px #ddd;
       }
     }
-    .dataItem {
-      padding: 10px;
-      height: 32px;
-      line-height: 32px;
-      font-size: 16px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      text-align: left;
-      img {
-        border-radius: 50%;
-        height: 24px;
-        position: relative;
-        top: 5px;
-        width: auto;
-        margin-right: 3px;
-      }
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // .headerRow {
+    //   width: auto;
+    //   padding: 0 20px;
+    //   margin: 20px;
+    //   height: 20px;
+    //   line-height: 20px;
+    //   display: flex;
+    //   justify-content: flex-start;
+    //   .headerItem {
+    //     width: 246px;
+    //     height: 20px;
+    //     line-height: 20px;
+    //     padding: 10px;
+    //     border: solid 2px #1B0F1C;
+    //     font-weight: bold;
+    //     background-color: #906FA1;
+    //     color: #eee;
+    //     text-align: left;
+
+    //   }
+    // }
+    // .tableRow {
+    //   width: auto;
+    //   padding: 0 20px;
+    //   margin: 20px;
+    //   height: 20px;
+    //   line-height: 20px;
+    //   display: flex;
+    //   justify-content: flex-start;
+    //   div {
+    //     width: 246px;
+    //     height: 20px;
+    //     line-height: 20px;
+    //     padding: 10px;
+    //     border: solid 2px #1B0F1C;
+    //     font-weight: bold;
+    //     color: #1a1a1a;
+    //     text-align: left;
+    //   }
+    // }
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // .headerRow {
-  //   width: auto;
-  //   padding: 0 20px;
-  //   margin: 20px;
-  //   height: 20px;
-  //   line-height: 20px;
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   .headerItem {
-  //     width: 246px;
-  //     height: 20px;
-  //     line-height: 20px;
-  //     padding: 10px;
-  //     border: solid 2px #1B0F1C;
-  //     font-weight: bold;
-  //     background-color: #906FA1;
-  //     color: #eee;
-  //     text-align: left;
-
-  //   }
-  // }
-  // .tableRow {
-  //   width: auto;
-  //   padding: 0 20px;
-  //   margin: 20px;
-  //   height: 20px;
-  //   line-height: 20px;
-  //   display: flex;
-  //   justify-content: flex-start;
-  //   div {
-  //     width: 246px;
-  //     height: 20px;
-  //     line-height: 20px;
-  //     padding: 10px;
-  //     border: solid 2px #1B0F1C;
-  //     font-weight: bold;
-  //     color: #1a1a1a;
-  //     text-align: left;
-  //   }
-  // }
 }

@@ -55,6 +55,7 @@ class TableComponent extends React.Component {
     }
 
     onScroll() {
+        console.log(this.element.current.scrollHeight, this.element.current.scrollTop, this.element.current.clientHeight)
         if (this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < 200) {
             if (this.props.data.length > this.state.lines) {
                 this.setState({ lines: this.state.lines + 10 })
@@ -68,34 +69,32 @@ class TableComponent extends React.Component {
         
         return (
             <div className='tableComponent' ref={this.element} onScroll={() => this.onScroll()}>
-                
-                {this.props.headers.map(header => 
-                    <Resizable 
-                        key={header}
-                        defaultSize={{
-                            width:200
-                        }}
-                        enable={{ 
-                            top:false, 
-                            right:true, 
-                            bottom:false, 
-                            left:false, 
-                            topRight:false, 
-                            bottomRight:false, 
-                            bottomLeft:false, 
-                            topLeft:false 
-                        }} 
-                        className='column'>
-                            <div className='header' onClick={() => this.columnSort(header)}>
-                                {header} <span className='caret' style={this.caretStyle(header)} />
-                            </div>
-                            {sortedData.map(line => 
-                                <Suspense key={line.id} fallback={<div className='dataItem'>Loading {header}...</div>}>
-                                    <DataItem line={line} header={header} />
-                                </Suspense>
-                            )}
-                    </Resizable>
-                )}
+                <div className='scrollable' >
+                    {this.props.headers.map(header => 
+                        <Resizable 
+                            key={header}
+                            enable={{ 
+                                top:false, 
+                                right:true, 
+                                bottom:false, 
+                                left:false, 
+                                topRight:false, 
+                                bottomRight:false, 
+                                bottomLeft:false, 
+                                topLeft:false 
+                            }} 
+                            className='column'>
+                                <div className='header' onClick={() => this.columnSort(header)}>
+                                    {header} <span className='caret' style={this.caretStyle(header)} />
+                                </div>
+                                {sortedData.map(line => 
+                                    <Suspense key={line.id} fallback={<div className='dataItem'>Loading {header}...</div>}>
+                                        <DataItem line={line} header={header} />
+                                    </Suspense>
+                                )}
+                        </Resizable>
+                    )}
+                </div>
             </div>
         )
     }

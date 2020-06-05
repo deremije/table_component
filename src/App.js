@@ -4,11 +4,15 @@ import './App.scss';
 import TableComponent from "./TableComponent/TableComponent"
 
 class App extends React.Component {
-  state = {
-    headers: ['name', 'email', 'cell', 'gender', 'nationality'],
-    data: null
-  }
+  constructor(props) {
+    super(props)
   
+    this.state = {
+      headers: ['name', 'email', 'cell', 'gender', 'nationality'],
+      data: null
+    }
+    
+  }
   componentDidMount() {
     fetch("https://randomuser.me/api/?results=500")
       .then(response => response.json())
@@ -30,7 +34,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="App" ref={this.element}>
         {this.state.data ? 
           <TableComponent headers={this.state.headers} data={this.state.data} /> :
           <div>Loading Table...</div>
