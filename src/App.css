@@ -6,7 +6,7 @@
   width: auto;
   display: flex;
   overflow-y: hidden;
-  :first-child {
-    margin: auto;
-  }
+}
+:first-child {
+  margin: auto;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.scss';
+import './App.css';
 
 import TableComponent from "./TableComponent/TableComponent"
 
@@ -11,10 +11,10 @@ class App extends React.Component {
       headers: ['name', 'email', 'cell', 'gender', 'nationality'],
       data: null,
       includePhoto: 'name',
-      sortBy: 'email',
-      pixelBuffer: 10,
-      chunkSize: 1,
-      originalLines: 4
+      // sortBy: 'email',
+      // pixelBuffer: 10,
+      // chunkSize: 1,
+      // originalLines: 4
     }
     
   }

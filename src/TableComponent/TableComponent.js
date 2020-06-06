@@ -2,7 +2,7 @@ import React from 'react'
 import { Suspense, lazy } from 'react';
 import { Resizable } from 're-resizable';
 
-import './TableComponent.scss'
+import './TableComponent.css'
 
 const DataItem = lazy(() => import("./DataItem/DataItem"))
 

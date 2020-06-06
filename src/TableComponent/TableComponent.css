@@ -1,0 +1,60 @@
+div.tableComponent {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+}
+div.tC-scrollable {
+  width: auto;
+  height: auto;
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  color: #1A1A1A;
+}
+.tC-column {
+  height: 100%;
+  border-right: solid 1px #ddd;
+  padding: 0 20px;
+}
+.tC-header {
+  padding: 10px;
+  margin-bottom: 6px;
+  border-bottom: solid 2px black;
+  font-weight: bold;
+  font-size: 18px;
+  height: 32px;
+  line-height: 32px;
+  cursor: pointer;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.tC-caret {
+  border-right: solid 3px black;
+  border-bottom: solid 3px black;
+  height: 6px;
+  width: 6px;
+  display: inline-block;
+  margin-left: 5px;
+  margin-bottom: 2px;
+  transition: all linear 200ms;
+}
+.tC-dataItem {
+  padding: 10px;
+  height: 32px;
+  line-height: 32px;
+  font-size: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+.tC-image {
+  border-radius: 50%;
+  height: 24px;
+  position: relative;
+  top: 5px;
+  width: auto;
+  margin-right: 8px;
+}

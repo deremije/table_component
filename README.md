@@ -54,9 +54,7 @@ Styles can be updated easily in CSS.  All classes besides "tableComponent" begin
 
 ### Dependencies
 ```
-    import React from 'react'
-    import { Suspense, lazy } from 'react';
-    import { Resizable } from 're-resizable';
+    "re-resizable": "^6.4.0",
 ```
 
 
