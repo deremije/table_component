@@ -17,20 +17,20 @@ describe('TableComponent', () => {
         const data = [{ email: 'email', name: 'name', cell: 'cell'}]
         const headers = ['email', 'name', 'cell']
         const wrapper = shallow(<TableComponent data={data} headers={headers} />)
-        expect(wrapper.find('.header').length).toEqual(3)
+        expect(wrapper.find('.tC-header').length).toEqual(3)
     })
 
     it ('should render columns for each header', () => {
         const data = [{ email: 'email', name: 'name', cell: 'cell'}]
         const headers = ['email', 'name', 'cell']
         const wrapper = shallow(<TableComponent data={data} headers={headers} />)
-        expect(wrapper.find('.column').length).toEqual(3)
+        expect(wrapper.find('.tC-column').length).toEqual(3)
     })
 
     it ('should display text', () => {
         const data = []
         const headers = ['email', 'name', 'cell']
         const wrapper = shallow(<TableComponent data={data} headers={headers} />)
-        expect(wrapper.first('.column').html()).toContain("email")
+        expect(wrapper.first('.tC-column').html()).toContain("email")
     })
 })

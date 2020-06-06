@@ -9,7 +9,12 @@ class App extends React.Component {
   
     this.state = {
       headers: ['name', 'email', 'cell', 'gender', 'nationality'],
-      data: null
+      data: null,
+      includePhoto: 'name',
+      sortBy: 'email',
+      pixelBuffer: 10,
+      chunkSize: 1,
+      originalLines: 4
     }
     
   }
@@ -36,7 +41,14 @@ class App extends React.Component {
     return (
       <div className="App" ref={this.element}>
         {this.state.data ? 
-          <TableComponent headers={this.state.headers} data={this.state.data} /> :
+          <TableComponent  
+            sortBy={this.state.sortBy}
+            includePhoto={this.state.includePhoto} 
+            pixelBuffer={this.state.pixelBuffer}
+            chunkSize={this.state.chunkSize}
+            originalLines={this.state.originalLines}
+            headers={this.state.headers}
+            data={this.state.data} /> :
           <div>Loading Table...</div>
         }
       </div>

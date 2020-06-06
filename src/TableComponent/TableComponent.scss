@@ -2,18 +2,18 @@ div.tableComponent {
   overflow-y: scroll;
   overflow-x: hidden;
   height: 100%;
-  div.scrollable {
+  div.tC-scrollable {
     width: auto;
     height: auto;
     position: relative;
     display: flex;
     justify-content: flex-start;
     color: #1A1A1A;
-    .column {
+    .tC-column {
       height: 100%;
       border-right: solid 1px #ddd;
       padding: 0 20px;
-      .header {
+      .tC-header {
         padding: 10px;
         margin-bottom: 6px;
         border-bottom: solid 2px black;
@@ -26,7 +26,7 @@ div.tableComponent {
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: left;
-        .caret {
+        .tC-caret {
           border-right: solid 3px black;
           border-bottom: solid 3px black;
           height: 6px;
@@ -37,7 +37,7 @@ div.tableComponent {
           transition: all linear 200ms;
         }
       }
-      .dataItem {
+      .tC-dataItem {
         padding: 10px;
         height: 32px;
         line-height: 32px;
@@ -46,7 +46,7 @@ div.tableComponent {
         overflow: hidden;
         text-overflow: ellipsis;
         text-align: left;
-        img {
+        .tC-image {
           border-radius: 50%;
           height: 24px;
           position: relative;

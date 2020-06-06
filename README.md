@@ -1,3 +1,53 @@
+# <TableComponent />
+
+TableComponent - reusable table component with sortable columns,
+lazy loaded data, and resizable columns.
+
+```
+<TableComponent 
+    headers: ["name", "email", "website"],
+    data: [
+        {
+            name: "Jeremy Randall",
+            email: "jeremy@deremije.com",
+            website: "https://www.jeremyrandall.dev",
+            photo: "https://www.jeremyrandall.dev/images/jeremy.png",
+            id: 1
+        }
+    ],
+    includePhoto: 'name',
+    sortBy: 'email',
+    pixelBuffer: 10,
+    chunkSize: 1,
+    originalLines: 4 />
+```
+
+Props: 
+    headers: Array of Strings - column headers, which are also the keys for values to display in table in the data prop
+
+    data: Array of Objects in form
+      {
+            header: value,
+            ... ,
+            id: idValue (REQUIRED)
+      }
+
+     sortBy: String (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be sorted by default by headers[0] 
+
+     includePhoto: String (OPTIONAL) - if included, when a column is rendered with the matching header, an image will be rendered inline with the src set to the value included under the 'photo' key  
+
+     pixelBuffer: Number (OPTIONAL) - if included, will override the number of pixels watched for in order to load another data chunk.  default is 200.
+
+     chunkSize: Number (OPTIONAL) - if included, will override the number of data lines to render at load and to add when user has scrolled into the pixelBuffer.  default is 10.
+     
+     originalLines: Number (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (10) or by the chunkSize prop
+
+Styles can be updated easily in CSS.  All classes besides "tableComponent" begin with "tC-".  The only inline style that will be difficult to override is for the sorting caret indicator.
+
+Please direct all questions to Jeremy Randall - jeremy@deremije.com
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -37,32 +87,5 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify

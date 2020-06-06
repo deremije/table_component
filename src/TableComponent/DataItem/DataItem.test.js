@@ -17,20 +17,20 @@ describe('DataItem', () => {
         const line = {name: "jeremy", photo: "jeremy.jpg", city: "lyon"}
         const header = 'city'
         const wrapper = shallow(<DataItem line={line} header={header} />)
-        expect(wrapper.find('.dataItem').text()).toContain("lyon")
+        expect(wrapper.find('.tC-dataItem').text()).toContain("lyon")
     })
 
     it ('shows an image in name column', () => {
         const line = {name: "jeremy", photo: "jeremy.jpg"}
         const header = 'name'
-        const wrapper = shallow(<DataItem line={line} header={header} />)
-        expect(wrapper.find('img').length).toEqual(1)
+        const wrapper = shallow(<DataItem line={line} header={header} includePhoto={"name"}/>)
+        expect(wrapper.find('.tC-image').length).toEqual(1)
     })
 
     it ('does not show an image in any other case', () => {
         const line = {name: "jeremy", photo: "jeremy.jpg"}
         const header = 'photo'
-        const wrapper = shallow(<DataItem line={line} header={header} />)
-        expect(wrapper.find('img').length).toEqual(0)
+        const wrapper = shallow(<DataItem line={line} header={header} includePhoto={"name"}/>)
+        expect(wrapper.find('.tC-image').length).toEqual(0)
     })
 })
