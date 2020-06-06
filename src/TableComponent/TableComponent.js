@@ -26,7 +26,7 @@ class TableComponent extends React.Component {
         if (this.props.pixelBuffer) this.setState({pixelBuffer: this.props.pixelBuffer})
         if (this.props.sortBy) this.setState({sortBy: this.props.sortBy})
         else if (this.props.headers) this.setState({sortBy: this.props.headers[0]})
-        setTimeout(() => { this.getDataChunk() }, 0)
+        process.nextTick(() => this.getDataChunk())
     }
 
     // updates sort parameters when column header is clicked
@@ -65,7 +65,7 @@ class TableComponent extends React.Component {
         if (this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer) {
             if (this.props.data.length > this.state.lines) {
                 this.setState({ lines: this.state.lines + this.state.chunkSize })
-                setTimeout(() => this.getDataChunk(), 0)
+                process.nextTick(() => this.getDataChunk())
             }
         }
     }
