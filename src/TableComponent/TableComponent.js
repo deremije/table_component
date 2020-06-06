@@ -21,7 +21,6 @@ class TableComponent extends React.Component {
     
     // override defaults via optional props, start lazy loading of data chunks
     componentDidMount() {
-        console.log(this.element)
         if (this.props.chunksize) this.setState({chunkSize: this.props.chunkSize, lines: this.props.chunkSize})
         if (this.props.originalLines) this.setState({lines: this.props.originalLines})
         if (this.props.pixelBuffer) this.setState({pixelBuffer: this.props.pixelBuffer})

@@ -33,6 +33,13 @@ describe('TableComponent', () => {
         const wrapper = shallow(<TableComponent data={data} headers={headers} />)
         expect(wrapper.find('.tC-header').text()).toContain("email")
     })
+
+    it ('should not display nullState when data and headers are both loaded', () => {
+        const data = [{ email: 'email', name: 'name', cell: 'cell'}]
+        const headers = ['email']
+        const wrapper = shallow(<TableComponent data={data} headers={headers} />)
+        expect(wrapper.find('.tC-nullState')).not.toBe(expect.anything())
+    })
     
     it ('should display nullState warning when data is not loaded', () => {
         const headers = ['email']
@@ -40,19 +47,25 @@ describe('TableComponent', () => {
         expect(wrapper.find('.tC-nullState'))
     })
 
-    it ('should display nullState warning when headers are not loaded', () => {
+    it ('should display nullState warning when data is wrong type (not array)', () => {
+        const headers = ['email']
+        const wrapper = shallow(<TableComponent data={"string"} headers={headers} />)
+        expect(wrapper.find('.tC-nullState'))
+    })
+
+    it ('should display nullState warning when headers is not loaded', () => {
         const data = [{ email: 'email', name: 'name', cell: 'cell'}]
         const wrapper = shallow(<TableComponent data={data} headers={null} />)
         expect(wrapper.find('.tC-nullState'))
     })
 
-    it ('should display nullState warning when data is empty', () => {
+    it ('should display nullState warning when data is empty array', () => {
         const headers = ['email']
         const wrapper = shallow(<TableComponent data={[]} headers={headers} />)
         expect(wrapper.find('.tC-nullState'))
     })
 
-    it ('should display nullState warning when headers are empty', () => {
+    it ('should display nullState warning when headers is empty array', () => {
         const data = [{ email: 'email', name: 'name', cell: 'cell'}]
         const wrapper = shallow(<TableComponent data={data} headers={[]} />)
         expect(wrapper.find('.tC-nullState'))
