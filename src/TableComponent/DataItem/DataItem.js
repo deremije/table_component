@@ -1,13 +1,12 @@
 import React from "react"
 
-class DataItem extends React.Component {
-    render() {
-        return (
-            <div className='tC-dataItem'>
-                {this.props.line.photo && this.props.header === this.props.includePhoto ? <img className="tC-image" src={this.props.line.photo} alt={this.props.line.name} /> : ""}{this.props.line[this.props.header]}
-            </div>
-        )
-    }
+const DataItem = ({line, header, includePhoto}) => {
+    return (
+        <div className='tC-dataItem'>
+            {line.photo && header === includePhoto ? <img className="tC-image" src={line.photo} alt={line.name} /> : ""}
+            {line[header]}
+        </div>
+    )
 }
 
 export default DataItem
