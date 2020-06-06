@@ -1,7 +1,7 @@
-# <TableComponent />
+### `<TableComponent />`
 
-TableComponent - reusable table component with sortable columns,
-lazy loaded data, and resizable columns.
+## TableComponent 
+    reusable table component with sortable columns, lazy loaded data, and resizable columns.
 
 ```
 <TableComponent 
@@ -23,24 +23,32 @@ lazy loaded data, and resizable columns.
 ```
 
 Props: 
-    headers: Array of Strings - column headers, which are also the keys for values to display in table in the data prop
+```
+    headers: Array of Strings
+        column headers, which are also the keys for values to display in table in the data prop
 
-    data: Array of Objects in form
+    data: Array of Objects
       {
             header: value,
             ... ,
             id: idValue (REQUIRED)
       }
 
-     sortBy: String (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be sorted by default by headers[0] 
+     sortBy: String 
+        (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be sorted by default by headers[0] 
 
-     includePhoto: String (OPTIONAL) - if included, when a column is rendered with the matching header, an image will be rendered inline with the src set to the value included under the 'photo' key  
+     includePhoto: String 
+        (OPTIONAL) - if included, when a column is rendered with the matching header, an image will be rendered inline with the src set to the value included under the 'photo' key  
 
-     pixelBuffer: Number (OPTIONAL) - if included, will override the number of pixels watched for in order to load another data chunk.  default is 200.
+     pixelBuffer: Number 
+        (OPTIONAL) - if included, will override the number of pixels watched for in order to load another data chunk.  default is 200.
 
-     chunkSize: Number (OPTIONAL) - if included, will override the number of data lines to render at load and to add when user has scrolled into the pixelBuffer.  default is 10.
-     
-     originalLines: Number (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (10) or by the chunkSize prop
+     chunkSize: Number 
+        (OPTIONAL) - if included, will override the number of data lines to render at load and to add when user has scrolled into the pixelBuffer.  default is 10.
+
+     originalLines: Number 
+        (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (10) or by the chunkSize prop
+```
 
 Styles can be updated easily in CSS.  All classes besides "tableComponent" begin with "tC-".  The only inline style that will be difficult to override is for the sorting caret indicator.
 
