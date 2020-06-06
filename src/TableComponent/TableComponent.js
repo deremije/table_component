@@ -12,7 +12,7 @@ class TableComponent extends React.Component {
         this.state = {
             ascending: true,
             sortBy: "",
-            lines: 10,
+            lines: 40,
             chunkSize: 10,
             pixelBuffer: 200,
         }
@@ -63,19 +63,29 @@ class TableComponent extends React.Component {
     // check to see if user is nearing the bottom of the scroll window, and render more lines if so
     getDataChunk() {
         if (this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer) {
-            if (this.props.data.length > this.state.lines) {
+            if (this.dataIsLoaded() && this.props.data.length > this.state.lines) {
                 this.setState({ lines: this.state.lines + this.state.chunkSize })
                 process.nextTick(() => this.getDataChunk())
             }
         }
     }
+
+    headersAreLoaded() {return Array.isArray(this.props.headers) && this.props.headers.length > 0}
+    dataIsLoaded() {return Array.isArray(this.props.data) && this.props.data.length > 0}
     
     render() {
         // check the renderable data on each render
-        const sortedData = this.sortData()
+        const sortedData = this.dataIsLoaded() ? this.sortData() : []
         
         return (
             <div className='tableComponent' ref={this.element} onScroll={() => this.getDataChunk()}>
+
+                
+                { /* check null states before rendering columns */
+                !this.headersAreLoaded() ? <div className='tC-nullState'><div>Waiting for Headers...</div></div> :
+                !this.dataIsLoaded() ? <div className='tC-nullState'><div>Waiting for Data...</div></div> :
+                        
+                /* if headers and data arrays have both been loaded, continue */
                 <div className='tC-scrollable' >
                     {this.props.headers.map(header => 
                         <Resizable 
@@ -102,7 +112,8 @@ class TableComponent extends React.Component {
                                 )}
                         </Resizable>
                     )}
-                </div>
+                </div> 
+                }
             </div>
         )
     }

@@ -3,6 +3,14 @@ div.tableComponent {
   overflow-x: hidden;
   height: 100%;
 }
+div.tC-nullState {
+  overflow: hidden;
+  display: flex;
+  height: 100%;
+}
+div.tC-nullState div {
+  margin: auto;
+}
 div.tC-scrollable {
   width: auto;
   height: auto;

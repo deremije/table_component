@@ -17,8 +17,8 @@ class App extends React.Component {
       // originalLines: 4,
       // columnWidth: 200
     }
-    
   }
+
   componentDidMount() {
     fetch("https://randomuser.me/api/?results=500")
       .then(response => response.json())
@@ -37,11 +37,9 @@ class App extends React.Component {
       .catch(error => console.log(error))
   }
 
-
   render() {
     return (
       <div className="App" ref={this.element}>
-        {this.state.data ? 
           <TableComponent  
             sortBy={this.state.sortBy}
             includePhoto={this.state.includePhoto} 
@@ -50,13 +48,10 @@ class App extends React.Component {
             originalLines={this.state.originalLines}
             columnWidth={this.state.columnWidth}
             headers={this.state.headers}
-            data={this.state.data} /> :
-          <div>Loading Table...</div>
-        }
+            data={this.state.data} /> 
       </div>
     )
   }
-  
 }
 
 export default App;
