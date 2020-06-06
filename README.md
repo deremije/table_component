@@ -18,7 +18,8 @@ A React reusable table component with sortable columns, lazy loaded data, and re
     sortBy: 'email',
     pixelBuffer: 10,
     chunkSize: 1,
-    originalLines: 4 />
+    originalLines: 4,
+    columnWidth: 200 />
 ```
 
 ### Props: 
@@ -33,20 +34,23 @@ A React reusable table component with sortable columns, lazy loaded data, and re
             id: idValue (REQUIRED)
       }
 
-     sortBy: String 
+    sortBy: String 
         (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be sorted by default by headers[0] 
 
-     includePhoto: String 
+    includePhoto: String 
         (OPTIONAL) - if included, when a column is rendered with the matching header, an image will be rendered inline with the src set to the value included under the 'photo' key  
 
-     pixelBuffer: Number 
-        (OPTIONAL) - if included, will override the number of pixels watched for in order to load another data chunk.  default is 200.
+    pixelBuffer: Number 
+        (OPTIONAL) - if included, will override the number of pixels watched for in order to load another data chunk.  default is 200
 
-     chunkSize: Number 
+    chunkSize: Number 
         (OPTIONAL) - if included, will override the number of data lines to render at load and to add when user has scrolled into the pixelBuffer.  default is 10.
 
-     originalLines: Number 
+    originalLines: Number 
         (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (10) or by the chunkSize prop
+
+    columnWidth: Number
+        (OPTIONAL) - if included, will set all table columns to be the same static width.  denotes the number of pixels
 ```
 
 ### Styles 

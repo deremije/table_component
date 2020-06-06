@@ -14,7 +14,7 @@ class TableComponent extends React.Component {
             sortBy: "",
             lines: 10,
             chunkSize: 10,
-            pixelBuffer: 200
+            pixelBuffer: 200,
         }
         this.element = React.createRef()
     }
@@ -80,6 +80,7 @@ class TableComponent extends React.Component {
                     {this.props.headers.map(header => 
                         <Resizable 
                             key={header}
+                            defaultSize={{width:this.props.columnWidth}}
                             enable={{ 
                                 top:false, 
                                 right:true, 

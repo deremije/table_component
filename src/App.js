@@ -14,7 +14,8 @@ class App extends React.Component {
       // sortBy: 'email',
       // pixelBuffer: 10,
       // chunkSize: 1,
-      // originalLines: 4
+      // originalLines: 4,
+      // columnWidth: 200
     }
     
   }
@@ -47,6 +48,7 @@ class App extends React.Component {
             pixelBuffer={this.state.pixelBuffer}
             chunkSize={this.state.chunkSize}
             originalLines={this.state.originalLines}
+            columnWidth={this.state.columnWidth}
             headers={this.state.headers}
             data={this.state.data} /> :
           <div>Loading Table...</div>
