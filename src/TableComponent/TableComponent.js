@@ -21,12 +21,13 @@ class TableComponent extends React.Component {
     
     // override defaults via optional props, start lazy loading of data chunks
     componentDidMount() {
+        console.log(this.element)
         if (this.props.chunksize) this.setState({chunkSize: this.props.chunkSize, lines: this.props.chunkSize})
         if (this.props.originalLines) this.setState({lines: this.props.originalLines})
         if (this.props.pixelBuffer) this.setState({pixelBuffer: this.props.pixelBuffer})
         if (this.props.sortBy) this.setState({sortBy: this.props.sortBy})
         else if (this.props.headers) this.setState({sortBy: this.props.headers[0]})
-        process.nextTick(() => this.getDataChunk())
+        setTimeout(() => { this.getDataChunk() }, 0);
     }
 
     // updates sort parameters when column header is clicked
@@ -60,16 +61,20 @@ class TableComponent extends React.Component {
         return array.slice(0, this.state.lines)
     }
 
+    scrolledToBottom() {
+        return this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer
+    }
     // check to see if user is nearing the bottom of the scroll window, and render more lines if so
     getDataChunk() {
-        if (this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer) {
-            if (this.dataIsLoaded() && this.props.data.length > this.state.lines) {
+        if (this.dataIsLoaded() && this.scrolledToBottom()) {
+            if (this.props.data.length > this.state.lines) {
                 this.setState({ lines: this.state.lines + this.state.chunkSize })
-                process.nextTick(() => this.getDataChunk())
+                setTimeout(() => { this.getDataChunk() }, 0);
             }
         }
     }
 
+    // determine null states
     headersAreLoaded() {return Array.isArray(this.props.headers) && this.props.headers.length > 0}
     dataIsLoaded() {return Array.isArray(this.props.data) && this.props.data.length > 0}
     
@@ -79,8 +84,6 @@ class TableComponent extends React.Component {
         
         return (
             <div className='tableComponent' ref={this.element} onScroll={() => this.getDataChunk()}>
-
-                
                 { /* check null states before rendering columns */
                 !this.headersAreLoaded() ? <div className='tC-nullState'><div>Waiting for Headers...</div></div> :
                 !this.dataIsLoaded() ? <div className='tC-nullState'><div>Waiting for Data...</div></div> :
