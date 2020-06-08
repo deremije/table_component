@@ -57,6 +57,7 @@ div.tC-scrollable {
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
+  cursor: pointer;
 }
 .tC-image {
   border-radius: 50%;

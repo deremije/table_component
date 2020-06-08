@@ -73,6 +73,10 @@ class TableComponent extends React.Component {
         }
     }
 
+    doTheThing(line) {
+        console.log('do the thing', line)
+    }
+
     // determine null states
     headersAreLoaded() {return Array.isArray(this.props.headers) && this.props.headers.length > 0}
     dataIsLoaded() {return Array.isArray(this.props.data) && this.props.data.length > 0}
@@ -109,7 +113,7 @@ class TableComponent extends React.Component {
                                 </div>
                                 {sortedData.map(line => 
                                     <Suspense key={line.id} fallback={<div className='tC-dataItem'>Loading {header}...</div>}>
-                                        <DataItem line={line} header={header} includePhoto={this.props.includePhoto} />
+                                        <DataItem line={line} header={header} includePhoto={this.props.includePhoto} clickFunction={this.props.clickFunction}/>
                                     </Suspense>
                                 )}
                         </Resizable>

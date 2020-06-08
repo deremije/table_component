@@ -37,6 +37,10 @@ class App extends React.Component {
       .catch(error => console.log(error))
   }
 
+  logLineData(line) {
+    console.log(line)
+  }
+
   render() {
     return (
       <div className="App" ref={this.element}>
@@ -48,7 +52,8 @@ class App extends React.Component {
             originalLines={this.state.originalLines}
             columnWidth={this.state.columnWidth}
             headers={this.state.headers}
-            data={this.state.data} /> 
+            data={this.state.data} 
+            clickFunction={this.logLineData} /> 
       </div>
     )
   }

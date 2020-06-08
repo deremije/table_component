@@ -47,10 +47,13 @@ A React reusable table component with sortable columns, lazy loaded data, and re
         (OPTIONAL) - if included, will override the number of data lines to render at load and to add when user has scrolled into the pixelBuffer.  default is 10.
 
     originalLines: Number 
-        (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (10) or by the chunkSize prop
+        (OPTIONAL) - if included, will override the number of data  lines to render at load set either by default (40) or by the chunkSize prop
 
     columnWidth: Number
         (OPTIONAL) - if included, will set all table columns to be the same static width.  denotes the number of pixels
+
+    clickFunction: Function
+        (OPTIONAL) - if included, will set an onClick function for each row in the table, and pass in the object used to populate the row as its parameter
 ```
 
 ### Styles 
