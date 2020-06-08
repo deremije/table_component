@@ -4,8 +4,8 @@ A React reusable table component with sortable columns, lazy loaded data, and re
 
 ```
 <TableComponent 
-    headers: ["name", "email", "website"],
-    data: [
+    headers={["name", "email", "website"]},
+    data={[
         {
             name: "Jeremy Randall",
             email: "jeremy@deremije.com",
@@ -13,13 +13,14 @@ A React reusable table component with sortable columns, lazy loaded data, and re
             photo: "https://www.jeremyrandall.dev/images/jeremy.png",
             id: 1
         }
-    ],
-    includePhoto: 'name',
-    sortBy: 'email',
-    pixelBuffer: 10,
-    chunkSize: 1,
-    originalLines: 4,
-    columnWidth: 200 />
+    ]},
+    includePhoto='name'
+    sortBy='email'
+    pixelBuffer={10}
+    chunkSize={1}
+    originalLines={4}
+    columnWidth={200}
+    clickFunction={(obj) => console.log(obj)} />
 ```
 
 ### Props: 

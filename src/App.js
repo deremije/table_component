@@ -9,13 +9,7 @@ class App extends React.Component {
   
     this.state = {
       headers: ['name', 'email', 'cell', 'gender', 'nationality'],
-      data: null,
-      includePhoto: 'name',
-      // sortBy: 'email',
-      // pixelBuffer: 10,
-      // chunkSize: 1,
-      // originalLines: 4,
-      // columnWidth: 200
+      data: null
     }
   }
 
@@ -37,23 +31,21 @@ class App extends React.Component {
       .catch(error => console.log(error))
   }
 
-  logLineData(line) {
-    console.log(line)
-  }
-
+//   DEMO: Comment in and out params to try out different parameters.  
+//   See README for notes on full functionality.
   render() {
     return (
       <div className="App" ref={this.element}>
           <TableComponent  
-            sortBy={this.state.sortBy}
-            includePhoto={this.state.includePhoto} 
-            pixelBuffer={this.state.pixelBuffer}
-            chunkSize={this.state.chunkSize}
-            originalLines={this.state.originalLines}
-            columnWidth={this.state.columnWidth}
+            // clickFunction={obj => console.log(obj)}
+            // pixelBuffer={10}
+            // chunkSize={1}
+            // originalLines={14}
+            // columnWidth={200}
+            // sortBy="email"
+            // includePhoto="name"
             headers={this.state.headers}
-            data={this.state.data} 
-            clickFunction={this.logLineData} /> 
+            data={this.state.data}  /> 
       </div>
     )
   }
