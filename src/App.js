@@ -37,13 +37,13 @@ class App extends React.Component {
     return (
       <div className="App" ref={this.element}>
           <TableComponent  
-            // clickFunction={obj => console.log(obj)}
+            clickFunction={obj => console.log(obj)}
             // pixelBuffer={10}
             // chunkSize={1}
-            // originalLines={14}
+            // originalLines={500}
             // columnWidth={200}
             // sortBy="email"
-            // includePhoto="name"
+            includePhoto="name"
             headers={this.state.headers}
             data={this.state.data}  /> 
       </div>
