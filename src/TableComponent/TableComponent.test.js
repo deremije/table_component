@@ -70,4 +70,12 @@ describe('TableComponent', () => {
         const wrapper = shallow(<TableComponent data={data} headers={[]} />)
         expect(wrapper.find('.tC-nullState'))
     })
+
+    it ('should still render when an optional param has wrong state', () => {
+        const data = [{ email: 'email', name: 'name', cell: 'cell'}]
+        const headers = ['email']
+        const clickFunction = "hello"
+        const wrapper = shallow(<TableComponent data={data} headers={headers} clickFunction={clickFunction} />)
+        expect(wrapper.find('.tC-nullState')).not.toBe(expect.anything())
+    })
 })

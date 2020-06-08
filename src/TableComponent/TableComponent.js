@@ -16,23 +16,22 @@ class TableComponent extends React.Component {
             chunkSize: 10,
             pixelBuffer: 200,
         }
-        // set ref to measure scroll height
+        // set element ref to measure scroll height
         this.element = React.createRef()
     }
     
     // override defaults via optional props, start lazy loading of data chunks
     componentDidMount() {
-        this.OverrideDefaultState()
+        this.overrideDefaultState()
         this.logErrors()
         setTimeout(() => { this.getDataChunk() }, 0);
     }
 
-    OverrideDefaultState() {
+    overrideDefaultState() {
         if (this.props.chunkSize && typeof this.props.chunkSize === "number") this.setState({chunkSize: this.props.chunkSize, lines: this.props.chunkSize})
         if (this.props.originalLines && typeof this.props.originalLines === "number") this.setState({lines: this.props.originalLines})
         if (this.props.pixelBuffer && typeof this.props.pixelBuffer === "number") this.setState({pixelBuffer: this.props.pixelBuffer})
         if (this.props.sortBy && typeof this.props.sortBy === "string") this.setState({sortBy: this.props.sortBy})
-            else this.setState({sortBy: this.props.headers[0]})
     }
 
     logErrors() {
@@ -61,7 +60,7 @@ class TableComponent extends React.Component {
 
     // adds style to carets depending on sort parameters
     caretStyle(header) {
-        let style = {
+        const style = {
             opacity: '0',
             transform: 'rotate(45deg)'
         }
@@ -84,6 +83,7 @@ class TableComponent extends React.Component {
     scrolledToBottom() {
         return this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer
     }
+
     // check to see if user is nearing the bottom of the scroll window, and render more lines if so
     getDataChunk() {
         if (this.dataIsLoaded() && this.scrolledToBottom()) {

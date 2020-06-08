@@ -36,7 +36,7 @@ A React reusable table component with sortable columns, lazy loaded data, and re
       }
 
     sortBy: String 
-        (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be sorted by default by headers[0] 
+        (OPTIONAL) - indicates the column header by which to sort at load. if omitted, columns will be unsorted by default
 
     includePhoto: String 
         (OPTIONAL) - if included, when a column is rendered with the matching header, an image will be rendered inline with the src set to the value included under the 'photo' key  
