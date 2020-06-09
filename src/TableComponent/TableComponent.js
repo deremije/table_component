@@ -24,8 +24,11 @@ class TableComponent extends React.Component {
     componentDidMount() {
         this.overrideDefaultState()
         this.logErrors()
-        setTimeout(() => { this.getDataChunk() }, 0);
     }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.data !== prevProps.data) this.getDataChunk()
+      }
 
     overrideDefaultState() {
         if (this.props.chunkSize && typeof this.props.chunkSize === "number") this.setState({chunkSize: this.props.chunkSize, lines: this.props.chunkSize})
@@ -81,6 +84,7 @@ class TableComponent extends React.Component {
     }
 
     scrolledToBottom() {
+        console.log(this.element.current.scrollHeight, this.element.current.scrollTop, this.element.current.clientHeight, this.state.pixelBuffer)
         return this.element.current.scrollHeight - (this.element.current.scrollTop + this.element.current.clientHeight) < this.state.pixelBuffer
     }
 
@@ -89,7 +93,7 @@ class TableComponent extends React.Component {
         if (this.dataIsLoaded() && this.scrolledToBottom()) {
             if (this.props.data.length > this.state.lines) {
                 this.setState({ lines: this.state.lines + this.state.chunkSize })
-                setTimeout(() => { this.getDataChunk() }, 0);
+                process.nextTick(() => this.getDataChunk());
             }
         }
     }
